@@ -1,4 +1,6 @@
-const dogData = [{name: 'Masha', age: 9}]
+
+// const dogData = [{ name: 'Masha', age: 9 }, { name: 'Clifford', age: 14 }]
+const db = require('../initdb')
 
 
 class Dog {
@@ -8,17 +10,22 @@ class Dog {
         this.age = data.age
     }
 
-    static get all(){
-        return new Promise(async (resolve, reject) => {
-            try{
-                const dogs = dogData.map(d => new dogs(d))
-                if (!dogs.length) {throw new Error('No doggos here"')}
-                resolve(dogs)
-            } catch (err){
-                reject(`Error retrieving dogs: ${err.message}`)
-            }
-        })
-    }
+
+  static get all() {
+    return new Promise(async (resolve, reject) => {
+      try {
+
+        const results = await db.query("SELECT * FROM dogs")
+        const dogs = results.rows.map(dog => new Dog(dog))
+
+        if (!dogs.length) { throw new Error('No doggos here!') }
+        resolve(dogs);
+      } catch (err) {
+        reject(`Error retrieving dogs: ${err.message}`)
+      }
+    })
+  }
+
 }
 
 module.exports = Dog;

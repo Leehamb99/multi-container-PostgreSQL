@@ -4,7 +4,8 @@
 ### Client
 * cd `mca-client/`
 * `npm install`
-* `npm run dev` to start client - [localhost:8080](http://localhost:8080) 
+* `npm run dev` to start client - [localhost:8080](http://localost:8080) 
+
 
 ### Server
 * cd `mca-server/`
