@@ -4,4 +4,5 @@ const dogsController = require('../controllers/dogs');
 
 router.get('/', dogsController.index);
 
-module.exports = router;
+
+module.export = router;

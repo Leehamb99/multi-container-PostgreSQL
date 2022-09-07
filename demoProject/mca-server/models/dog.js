@@ -1,12 +1,15 @@
+
 // const dogData = [{ name: 'Masha', age: 9 }, { name: 'Clifford', age: 14 }]
 const db = require('../initdb')
 
+
 class Dog {
-  constructor(data) {
-    this.id = data._id
-    this.name = data.name;
-    this.age = data.age;
-  }
+    constructor(data){
+        this.id = data._id
+        this.name = data.name
+        this.age = data.age
+    }
+
 
   static get all() {
     return new Promise(async (resolve, reject) => {
@@ -22,6 +25,8 @@ class Dog {
       }
     })
   }
+
 }
 
 module.exports = Dog;
+
